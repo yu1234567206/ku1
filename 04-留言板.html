@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>留言板</title>
+		<style>
+			.ba{text-align: center;margin: auto;width:400px; min-height: 50px;}
+			h2{border-bottom:6px #FFFF00 solid;width: 400px;text-align: center;}
+			textarea{width: 394px; height:100px;}
+			button{width:400px; height: 50px;}
+			#con{width:400px;min-height:100px;border:1px #FFFF00 dotted}
+		</style>
+	</head>
+	<body>
+		<div class="ba">
+		<h2>留言板</h2>
+		<textarea id='box' ></textarea>
+		<br />
+		<button id='btn'>提交留言</button>
+		<div id = 'con'></div>
+		</div>
+		<script>
+			let oBox = document.getElementById("box");
+			let oBtn = document.getElementById('btn');
+			let oCon = document.getElementById('con');
+			
+			var floor = 1;
+			
+			oBtn.onclick = function(){
+				let cc = oBox.value;
+				if(cc == ""){
+					alert('文本不能为空');
+				}else{
+					oCon.innerHTML += "第"+floor+'楼：'+cc+ '<br/>';
+					floor++;
+					oBox.value = "";
+				}
+				
+				
+			}
+			oBtn.onmouseover = function(){
+				oBtn.style.background = 'green';
+			}
+			oBtn.onmouseout = function(){
+				oBtn.style.background='none'
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
